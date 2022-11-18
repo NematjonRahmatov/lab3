@@ -1,8 +1,9 @@
 package Interfaces;
 
 public interface CorpIn {
-    public void setPrice(double Price);
-    public double getPrice();
+    void setPrice(double Price);
+    double getPrice();
 
-    public void addPrice(double n);
+    void addPrice(double n);
+
 }

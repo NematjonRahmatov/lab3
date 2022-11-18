@@ -25,4 +25,19 @@ public class Stock implements CorpIn {
     public static double PricetoRUB(double price){
         return (price * 60.32);
     }
+
+    public static void BuyStock(Client cl, Corp c, double price){
+        if (cl.getMoney() >= price) {
+            if ((c.getPrice() / 100) * 20 > price) {
+                c.addPrice(price);
+                System.out.println(cl.name + " купил акцию " + c.getName());
+                cl.MinusMoney(price);
+                cl.addStock(c);
+            } else {
+                System.out.println("Не получиться купить акции " + c.getName());
+            }
+        }else{
+            System.out.println("Не достаточно денег!");
+        }
+    }
 }
