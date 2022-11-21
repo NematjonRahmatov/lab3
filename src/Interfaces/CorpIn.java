@@ -1,9 +1,7 @@
 package Interfaces;
 
-public interface CorpIn {
-    void setPrice(double Price);
+public interface CorpIn extends Info{
+    boolean setPrice(double Price);
     double getPrice();
-
-    void addPrice(double n);
-
+    boolean addPrice(double n);
 }

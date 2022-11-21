@@ -1,5 +1,7 @@
 package Enums;
 
 public enum CorpType {
-    Big, Baby, Normal
+    Big, //todo upper case
+    Baby,
+    NORMAL
 }

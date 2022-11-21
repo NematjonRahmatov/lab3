@@ -3,14 +3,9 @@ package Classes;
 import Enums.CorpType;
 
 public class Corp extends Stock{
-    String name;
-    double price = 0;
-    CorpType Type = CorpType.Normal;
-
-    @Override
-    public void setPrice(double price) {
-        this.price = price;
-    }
+    public String name;
+    public double price = 0;
+    public CorpType Type = CorpType.NORMAL;
 
     public Corp(String name, double price){
         super(price);
@@ -20,10 +15,27 @@ public class Corp extends Stock{
         return this.name;
     }
 
-    public void setType(CorpType Type){
+    public boolean setType(CorpType Type){
         this.Type = Type;
+        return true;
     }
     public CorpType getType(){
         return Type;
+    }
+
+    @Override
+    public boolean setPrice(double price) {
+        this.price = price;
+        return true;
+    }
+
+    @Override
+    public void describe(String txt) {
+        super.describe(txt);
+    }
+
+    @Override
+    public void info() {
+        this.describe("Corparation!");
     }
 }

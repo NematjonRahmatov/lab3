@@ -12,7 +12,11 @@ public class ArbuzCorp extends Corp {
     }
 
     @Override
-    public String toString() {
-        return "I am a Arbuz! I am a biggest Corp!";
+    public void describe(String txt) {
+        super.describe(txt);
+    }
+    @Override
+    public void info() {
+        this.describe("I am a Arbuz! I am a biggest Corp!");
     }
 }

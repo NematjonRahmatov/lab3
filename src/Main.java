@@ -6,7 +6,6 @@ import Obj.*;
 import java.awt.image.CropImageFilter;
 import java.util.Random;
 import java.util.Scanner;
-
 public class Main {
     public static void main(String[] args) {
         Corp big = new ArbuzCorp();
@@ -47,13 +46,13 @@ public class Main {
         }
         System.out.println();
         Neznayka Neznayka = new Neznayka();
-        System.out.println(Neznayka.toString());
+        System.out.println(Neznayka);
         System.out.println();
 
         Stock.BuyStock(Neznayka, Cucumbers[0], 10);
         System.out.println(Cucumbers[0].getPrice());
         System.out.println();
-        System.out.println(Neznayka.Stocks());
+        System.out.println(Neznayka.stocks());
         System.out.println();
         System.out.println(Neznayka.inScafandara());
         System.out.println(Neznayka.gotoKosmos());
@@ -73,7 +72,8 @@ public class Main {
         }
 
         System.out.println();
-        System.out.println(Sed.Stocks());
+        System.out.println(Sed.stocks());
         System.out.println(Sed.addMoney(1));
+
     }
 }

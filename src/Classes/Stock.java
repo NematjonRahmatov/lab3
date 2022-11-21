@@ -9,8 +9,9 @@ public class Stock implements CorpIn {
         this.price = price;
     }
     @Override
-    public void setPrice(double price){
+    public boolean setPrice(double price){
         this.price = price;
+        return true;
     }
 
     public double getPrice(){
@@ -30,8 +31,8 @@ public class Stock implements CorpIn {
         if (cl.getMoney() >= price) {
             if ((c.getPrice() / 100) * 20 > price) {
                 c.addPrice(price);
-                System.out.println(cl.name + " купил акцию " + c.getName());
-                cl.MinusMoney(price);
+                System.out.println(cl.name + " купил акцию " + c.getName()); //todo refactoring
+                cl.minusMoney(price);
                 cl.addStock(c);
             } else {
                 System.out.println("Не получиться купить акции " + c.getName());

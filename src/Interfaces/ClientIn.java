@@ -2,12 +2,11 @@ package Interfaces;
 
 import Classes.Corp;
 
-public interface ClientIn {
+public interface ClientIn extends Info{
     double getMoney();
-    String addMoney(double money);
-    void MinusMoney(double money);
-    void addStock(Corp cp);
-    String Stocks();
+    boolean addMoney(double money);
+    boolean minusMoney(double money);
+    boolean addStock(Corp cp);
+    boolean stocks();
     int countOfStocks();
-
 }
