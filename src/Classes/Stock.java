@@ -40,8 +40,8 @@ public class Stock implements CorpIn {
     }
     @Override
     public boolean addPrice(double n) {
-        DualArif i = (nn, k) -> (nn = nn + k);
-        i.dualArig(this.price, n);
+        DualArif i = (nn, k) -> (nn + k);
+        this.price = i.dualArig(this.price, n);
         return true;
     }
 

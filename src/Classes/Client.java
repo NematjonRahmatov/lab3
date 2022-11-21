@@ -23,8 +23,8 @@ public class Client implements ClientIn {
 
     public boolean addMoney(double money){
         if (money > 0) {
-            DualArif i = (n, k) -> (n = n + k);
-            i.dualArig(this.money, money);
+            DualArif i = (n, k) -> (n + k);
+            this.money = i.dualArig(this.money, money);
             this.describe(("Вам начислино " + money + " USD"));
             return true;
         }else{
@@ -33,8 +33,8 @@ public class Client implements ClientIn {
     }
 
     public boolean minusMoney(double money){
-        DualArif i = (n, k) -> (n = n - Math.abs(k));
-        i.dualArig(this.money, money);
+        DualArif i = (n, k) -> (n - Math.abs(k));
+        this.money = i.dualArig(this.money, money);
         return true;
     }
 
