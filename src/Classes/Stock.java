@@ -1,6 +1,8 @@
 package Classes;
 
 import Interfaces.CorpIn;
+import Interfaces.AricmeticksLambda;
+import Interfaces.DualArif;
 
 public class Stock implements CorpIn {
     protected double price;
@@ -14,12 +16,14 @@ public class Stock implements CorpIn {
     }
 
     public static double pricetoRUB(double price){
-        return (price * 60.32);
+        AricmeticksLambda i = (n) -> (n * 60.32);
+        return i.arigmetics(price);
     }
 
     public static boolean buyStock(Client cl, Corp c, double price){
         if (cl.getMoney() >= price) {
-            if ((c.getPrice() / 100) * 20 > price) {
+            AricmeticksLambda i = (n) -> ((n / 100) * 20);
+            if (i.arigmetics(c.getPrice()) > price) {
                 c.addPrice(price);
                 System.out.println((cl.name + " купил акцию " + c.getName()));
                 cl.minusMoney(price);
@@ -36,7 +40,8 @@ public class Stock implements CorpIn {
     }
     @Override
     public boolean addPrice(double n) {
-        this.price = price + n;
+        DualArif i = (nn, k) -> (nn = nn + k);
+        i.dualArig(this.price, n);
         return true;
     }
 

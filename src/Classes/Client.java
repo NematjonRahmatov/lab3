@@ -1,6 +1,8 @@
 package Classes;
 
+import Interfaces.AricmeticksLambda;
 import Interfaces.ClientIn;
+import Interfaces.DualArif;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +23,8 @@ public class Client implements ClientIn {
 
     public boolean addMoney(double money){
         if (money > 0) {
-            this.money = this.money + money;
+            DualArif i = (n, k) -> (n = n + k);
+            i.dualArig(this.money, money);
             this.describe(("Вам начислино " + money + " USD"));
             return true;
         }else{
@@ -30,7 +33,8 @@ public class Client implements ClientIn {
     }
 
     public boolean minusMoney(double money){
-        this.money = this.money - Math.abs(money);
+        DualArif i = (n, k) -> (n = n - Math.abs(k));
+        i.dualArig(this.money, money);
         return true;
     }
 
