@@ -1,7 +1,13 @@
 package Enums;
 
 public enum CorpType {
-    Big, //todo upper case
-    Baby,
-    NORMAL
+    BIG("большой"),
+    BABY("Малой"),
+    NORMAL("Норм!");
+
+    String translate;
+
+    CorpType(String translate) {
+        this.translate = translate;
+    }
 }

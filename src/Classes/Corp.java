@@ -3,9 +3,9 @@ package Classes;
 import Enums.CorpType;
 
 public class Corp extends Stock{
-    public String name;
-    public double price = 0;
-    public CorpType Type = CorpType.NORMAL;
+    protected String name;
+    protected double price = 0;
+    protected CorpType Type = CorpType.NORMAL;
 
     public Corp(String name, double price){
         super(price);
@@ -28,12 +28,6 @@ public class Corp extends Stock{
         this.price = price;
         return true;
     }
-
-    @Override
-    public void describe(String txt) {
-        super.describe(txt);
-    }
-
     @Override
     public void info() {
         this.describe("Corparation!");

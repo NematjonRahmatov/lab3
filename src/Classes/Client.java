@@ -6,9 +6,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Client implements ClientIn {
-    public String name;
-    public double money = 0; //todo add modifiers
-    public List<Corp> cp = new ArrayList<>();
+    protected String name;
+    protected double money = 0;
+    protected List<Corp> cp = new ArrayList<>();
 
     public Client(String name, double money) {
         this.name = name;
@@ -49,17 +49,12 @@ public class Client implements ClientIn {
             return true;
         }else {
             this.describe("Нету акций у тебя!");
-            return false; //todo return object components instead of plain text
+            return false;
         }
     }
 
     public int countOfStocks(){
         return this.cp.size();
-    }
-
-    @Override
-    public void describe(String txt) {
-        System.out.println(txt);
     }
 
     @Override

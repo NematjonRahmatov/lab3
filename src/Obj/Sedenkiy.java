@@ -8,7 +8,8 @@ public class Sedenkiy extends Client {
     }
 
     @Override
-    public String toString() {
-        return "Sedenkiy богатый! Ему подарил Миг!";
+    public void info() {
+        this.describe("Sedenkiy богатый! Ему подарил Миг!");
     }
+
 }

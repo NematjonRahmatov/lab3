@@ -3,42 +3,51 @@ package Classes;
 import Interfaces.CorpIn;
 
 public class Stock implements CorpIn {
-    double price;
+    protected double price;
 
     public Stock(double price){
         this.price = price;
-    }
-    @Override
-    public boolean setPrice(double price){
-        this.price = price;
-        return true;
     }
 
     public double getPrice(){
         return this.price;
     }
 
-    @Override
-    public void addPrice(double n) {
-        this.price = price + n;
-    }
-
-    public static double PricetoRUB(double price){
+    public static double pricetoRUB(double price){
         return (price * 60.32);
     }
 
-    public static void BuyStock(Client cl, Corp c, double price){
+    public static boolean buyStock(Client cl, Corp c, double price){
         if (cl.getMoney() >= price) {
             if ((c.getPrice() / 100) * 20 > price) {
                 c.addPrice(price);
-                System.out.println(cl.name + " купил акцию " + c.getName()); //todo refactoring
+                System.out.println((cl.name + " купил акцию " + c.getName()));
                 cl.minusMoney(price);
                 cl.addStock(c);
+                return true;
             } else {
                 System.out.println("Не получиться купить акции " + c.getName());
+                return false;
             }
         }else{
             System.out.println("Не достаточно денег!");
+            return false;
         }
+    }
+    @Override
+    public boolean addPrice(double n) {
+        this.price = price + n;
+        return true;
+    }
+
+    @Override
+    public boolean setPrice(double price){
+        this.price = price;
+        return true;
+    }
+
+    @Override
+    public void info() {
+        this.describe("Stock!");
     }
 }

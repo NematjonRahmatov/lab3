@@ -8,7 +8,7 @@ public class Cucumber extends Corp {
     }
 
     @Override
-    public String toString() {
-        return "I am a Cucumber! I biggest than Korotishek!";
+    public void info() {
+        this.describe("I am a Cucumber! I biggest than Korotishek!");
     }
 }

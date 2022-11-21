@@ -3,17 +3,10 @@ package Obj;
 import Classes.Corp;
 import Enums.CorpType;
 
-import java.lang.reflect.Type;
-
 public class ArbuzCorp extends Corp {
     public ArbuzCorp() {
         super("ArbuzCorp Inc.", 150.4);
-        this.setType(CorpType.Big);
-    }
-
-    @Override
-    public void describe(String txt) {
-        super.describe(txt);
+        this.setType(CorpType.BIG);
     }
     @Override
     public void info() {
