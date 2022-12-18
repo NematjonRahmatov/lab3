@@ -1,13 +1,13 @@
 package Enums;
 
-public enum CorpType {
+public enum StockType {
     BIG("большой"),
     BABY("Малой"),
     NORMAL("Норм!");
 
     String translate;
 
-    CorpType(String translate) {
+    StockType(String translate) {
         this.translate = translate;
     }
 }
