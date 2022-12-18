@@ -1,5 +1,6 @@
 package Classes;
 
+import Enums.StockType;
 import Interfaces.AricmeticksLambda;
 import Interfaces.ClientIn;
 import Interfaces.DualArif;
@@ -10,7 +11,7 @@ import java.util.List;
 public class Client implements ClientIn {
     protected String name;
     protected double money = 0;
-    protected List<Corp> cp = new ArrayList<>();
+    protected List<Stock> cp = new ArrayList<>();
 
     public Client(String name, double money) {
         this.name = name;
@@ -23,8 +24,8 @@ public class Client implements ClientIn {
 
     public boolean addMoney(double money){
         if (money > 0) {
-            DualArif i = (n, k) -> (n + k);
-            this.money = i.dualArig(this.money, money);
+            DualArif sumMoney = (n, k) -> (n + k);
+            this.money = sumMoney.dualArig(this.money, money);
             this.describe(("Вам начислино " + money + " USD"));
             return true;
         }else{
@@ -33,12 +34,12 @@ public class Client implements ClientIn {
     }
 
     public boolean minusMoney(double money){
-        DualArif i = (n, k) -> (n - Math.abs(k));
-        this.money = i.dualArig(this.money, money);
+        DualArif minMoney = (n, k) -> (n - Math.abs(k));
+        this.money = minMoney.dualArig(this.money, money);
         return true;
     }
 
-    public boolean addStock(Corp cp){
+    public boolean addStock(Stock cp){
         this.cp.add(cp);
         return true;
     }
@@ -46,7 +47,7 @@ public class Client implements ClientIn {
     public boolean stocks(){
         String s = "";
         if(!this.cp.isEmpty()){
-            for(Corp e: this.cp){
+            for(Stock e: this.cp){
                 s = s + (e.getName()) + " ";
             }
             this.describe(s);
@@ -59,6 +60,25 @@ public class Client implements ClientIn {
 
     public int countOfStocks(){
         return this.cp.size();
+    }
+
+    public boolean buyStock(Stock c, double price){
+        if (this.getMoney() >= price) {
+            AricmeticksLambda prosentOf20 = (n) -> ((n / 100) * 20);
+            if (prosentOf20.arigmetics(c.getPrice()) > price) {
+                c.addPrice(price);
+                System.out.println((this.name + " купил акцию " + c.getName()));
+                this.minusMoney(price);
+                this.addStock(c);
+                return true;
+            } else {
+                System.out.println("Не получиться купить акции " + c.getName());
+                return false;
+            }
+        }else{
+            System.out.println("Не достаточно денег!");
+            return false;
+        }
     }
 
     @Override

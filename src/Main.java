@@ -1,23 +1,21 @@
-import Classes.Client;
-import Classes.Corp;
 import Classes.Stock;
+import Enums.StockType;
 import Obj.*;
 
-import java.awt.image.CropImageFilter;
 import java.util.Random;
-import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-        Corp big = new ArbuzCorp();
+        Stock big = new ArbuzCorp();
         System.out.println(big.getName() + " is a bigger Corp");
         System.out.println(big.getPrice() + " USD");
-        System.out.println(Stock.pricetoRUB(big.getPrice()) + " RUB");
+        System.out.println(big.pricetoRUB() + " RUB");
         System.out.println(big.getType()); nl();
-        Corp[] korotishka = new Corp[25];
+        Stock[] korotishka = new Stock[25];
 
         for (int i = 0; i <= 24; i++) {
             String name = "Коротышка " + i;
-            korotishka[i] = new Corp(name, new Random().nextInt(1, 50));
+            korotishka[i] = new Stock(name, new Random().nextInt(1, 50));
             //System.out.println(korotishka[i].getPrice());
         }
 
@@ -51,7 +49,7 @@ public class Main {
         neznayka.info();
         nl();
 
-        Stock.buyStock(neznayka, cucumbers[0], 10);
+        neznayka.buyStock(cucumbers[0], 10);
         System.out.println(cucumbers[0].getPrice()); nl();
         neznayka.stocks(); nl();
         neznayka.inScafandara();
@@ -61,11 +59,11 @@ public class Main {
             if (new Random().nextInt(1, 2) == 1) {
                 int ii = new Random().nextInt(0, 24);
                 int price = new Random().nextInt(1, 20);
-                Stock.buyStock(sed, korotishka[ii], price);
+                sed.buyStock(korotishka[ii], price);
             } else {
                 int ii = new Random().nextInt(0, 8);
                 int price = new Random().nextInt(1, 20);
-                Stock.buyStock(sed, cucumbers[ii], price);
+                sed.buyStock(cucumbers[ii], price);
             }
         }
 

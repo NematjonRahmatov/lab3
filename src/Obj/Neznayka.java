@@ -1,7 +1,7 @@
 package Obj;
 
 import Classes.Client;
-import Classes.Stock;
+import Enums.StockType;
 
 public class Neznayka extends Client {
 
@@ -28,4 +28,5 @@ public class Neznayka extends Client {
             return false;
         }
     }
+
 }
